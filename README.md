@@ -3,11 +3,9 @@
 
 ## Prerequisites
 Before using this snippet, verify you've met with the following requirements:
-- [ ] The powershell EXO v3 module must be installed on the server running the Agent. See
-https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps for instructions
+- [ ] The powershell EXO v3 module must be installed on the server running the Agent. See [Exchange-online-powershell-v2](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps) for instructions
 
-- [ ] User defined variables: `ExchangeOnlineAdminUsername` and `$ExchangeOnlineAdminPassword` created in your HelloID portal.
-  see also https://docs.helloid.com/en/variables/custom-variables.html
+- [ ] User defined variables: `ExchangeOnlineAdminUsername` and `$ExchangeOnlineAdminPassword` created in your HelloID portal. See also [Custom Variables](https://docs.helloid.com/en/variables/custom-variables.html)
 
 ## Description
 
@@ -19,11 +17,12 @@ This code snippet executes the following tasks:
 
 ```json
 {
-    "Identity" :                "testshared1@myenvironment.onmicrosoft.com"
+    "MailboxIdentity" : "testshared1@myenvironment.onmicrosoft.com"
 }
 ```
 
-> :exclamation: It is important to note that the names of your form fields might differ. Ensure that the `$formObject` hashtable is appropriately adjusted to match your form fields.
+> :exclamation: It is important to note that the names of your form fields might differ. Ensure that the `$formObject` hashtable is appropriately adjusted to match your form fields.>
+> The field **MailboxIdentity** accepts different values [See the Microsoft Docs page](https://learn.microsoft.com/en-us/powershell/module/exchange/get-mailbox?view=exchange-ps#-identity)
 
 2. Constructs a powershell credential object from the supplied administrative username and password
 
@@ -31,6 +30,6 @@ This code snippet executes the following tasks:
 
 4. Calls the `Get-Mailbox` cmdlet to lookup the mailbox
 
-5. Calls the `Remove-Mailbox` cmdlet to delete the mailbox.
+5. Calls the `Remove-Mailbox` cmdlet to delete the mailbox.  [Remove-Mailbox](https://learn.microsoft.com/en-us/powershell/module/exchange/remove-mailbox?view=exchange-ps)
 
 6. Disconnects from the Exchange environment by means of the `Disconnect-ExchangeOnline` cmdlet
